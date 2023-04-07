@@ -1,0 +1,167 @@
+local lp = game.Players.LocalPlayer
+
+local tween_s = game:GetService('TweenService')
+local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+elseif 
+local s = {
+	Pupple = Vector3.new(102.96784210205078, 61.89976501464844, 131.00253295898438),
+	Yellow = Vector3.new(142.66383361816406, 61.89976119995117, 26.26506233215332),
+	Blue = Vector3.new(104.18475341796875, 61.89976501464844, -81.1202621459961),
+	Green = Vector3.new(0.6651706695556641, 61.89976119995117, -122.27001190185547),
+	Red = Vector3.new(-108.24239349365234, 61.89976501464844, -82.13945770263672),
+	Black = Vector3.new(-148.59144592285156, 61.89976501464844, 26.049686431884766),
+	Pink = Vector3.new(-110.75550842285156, 61.89976501464844, 130.63064575195312),
+	Orange = Vector3.new(-4.318212032318115, 61.899776458740234, 172.88290405273438),
+}
+
+local g = {
+	Pupple = Vector3.new(84.71648406982422, 61.78913116455078, -111.79570007324219),
+	Yellow = Vector3.new(153.53541564941406, 61.78913116455078, -6.406278133392334),
+	Blue = Vector3.new(84.71648406982422, 61.78913116455078, -111.79570007324219),
+	Green = Vector3.new(-33.18332290649414, 61.78913116455078, -131.68658447265625),
+	Red = Vector3.new(-138.69447326660156, 61.78913116455078, -64.42129516601562),
+	Black = Vector3.new(-158.04879760742188, 61.78913116455078, 58.840660095214844),
+	Pink = Vector3.new(-94.34077453613281, 61.78913116455078, 161.30624389648438),
+	Orange = Vector3.new(30.232025146484375, 61.78913116455078, 181.7314453125),
+}
+
+local v = {
+	Pupple = Vector3.new(31.274341583251953, 61.550941467285156, 59.484840393066406),
+	Yellow = Vector3.new(43.031070709228516, 61.550941467285156, 25.850135803222656),
+	Blue = Vector3.new(33.29473876953125, 61.550941467285156, -11.671056747436523),
+	Green = Vector3.new(0.22280025482177734, 61.550941467285156, -22.677833557128906),
+	Red = Vector3.new(-37.73094177246094, 61.550941467285156, -11.428075790405273),
+	Black = Vector3.new(-49.09782028198242, 61.550941467285156, 25.381717681884766),
+	Pink = Vector3.new(-40.04326248168945, 61.550941467285156, 60.460819244384766),
+	Orange = Vector3.new(-3.9063756465911865, 61.550941467285156, 73.13711547851562),
+}
+
+local l = {
+	lobby = Vector3.new(-5.425681114196777, 61.550941467285156, 24.242029190063477),
+}
+
+function bypass_teleport(v)
+	if lp.Character and
+	lp.Character:FindFirstChild('HumanoidRootPart') then
+		local cf = CFrame.new(v)
+		local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+		a:Play()
+	end
+end
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Ware Hub", "Synapse")
+
+local Tab = Window:NewTab("View Tycoon")
+local TabSection = Tab:NewSection("Basic")
+
+TabSection:NewButton("Go Lobby", "", function()
+bypass_teleport(l.lobby)
+end)
+
+local TabSection = Tab:NewSection("Select")
+
+TabSection:NewButton("Purple", "Purple Tycoon", function()
+bypass_teleport(v.Pupple)
+end)
+
+TabSection:NewButton("Yellow", "Yellow Tycoon", function()
+bypass_teleport(v.Yellow)
+end)
+
+TabSection:NewButton("Blue", "Blue Tycoon", function()
+bypass_teleport(v.Blue)
+end)
+
+TabSection:NewButton("Green", "Green Tycoon", function()
+bypass_teleport(v.Green)
+end)
+
+TabSection:NewButton("Red", "Red Tycoon", function()
+bypass_teleport(v.Red)
+end)
+
+TabSection:NewButton("Black", "Black Tycoon", function()
+bypass_teleport(v.Black)
+end)
+
+TabSection:NewButton("Pink", "Pink Tycoon", function()
+bypass_teleport(v.Pink)
+end)
+
+TabSection:NewButton("Orange", "Orange", function()
+bypass_teleport(v.Orange)
+end)
+
+local Tab = Window:NewTab("Base Tycoon")
+local TabSection = Tab:NewSection("Select")
+
+TabSection:NewButton("Purple", "Purple Tycoon", function()
+bypass_teleport(s.Pupple)
+end)
+
+TabSection:NewButton("Yellow", "Yellow Tycoon", function()
+bypass_teleport(s.Yellow)
+end)
+
+TabSection:NewButton("Blue", "Blue Tycoon", function()
+bypass_teleport(s.Blue)
+end)
+
+TabSection:NewButton("Green", "Green Tycoon", function()
+bypass_teleport(s.Green)
+end)
+
+TabSection:NewButton("Red", "Red Tycoon", function()
+bypass_teleport(s.Red)
+end)
+
+TabSection:NewButton("Black", "Black Tycoon", function()
+bypass_teleport(s.Black)
+end)
+
+TabSection:NewButton("Pink", "Pink Tycoon", function()
+bypass_teleport(s.Pink)
+end)
+
+TabSection:NewButton("Orange", "Orange", function()
+bypass_teleport(s.Orange)
+end)
+
+local Tab = Window:NewTab("Go Tycoon")
+local TabSection = Tab:NewSection("Select")
+
+TabSection:NewButton("Purple", "Purple Tycoon", function()
+bypass_teleport(g.Pupple)
+end)
+
+TabSection:NewButton("Yellow", "Yellow Tycoon", function()
+bypass_teleport(g.Yellow)
+end)
+
+TabSection:NewButton("Blue", "Blue Tycoon", function()
+bypass_teleport(g.Blue)
+end)
+
+TabSection:NewButton("Green", "Green Tycoon", function()
+bypass_teleport(g.Green)
+end)
+
+TabSection:NewButton("Red", "Red Tycoon", function()
+bypass_teleport(g.Red)
+end)
+
+TabSection:NewButton("Black", "Black Tycoon", function()
+bypass_teleport(g.Black)
+end)
+
+TabSection:NewButton("Pink", "Pink Tycoon", function()
+bypass_teleport(g.Pink)
+end)
+
+TabSection:NewButton("Orange", "Orange", function()
+bypass_teleport(g.Orange)
+end)
+--[[
+setclipboard(tostring(lp.Character.HumanoidRootPart.Position))
+]]
