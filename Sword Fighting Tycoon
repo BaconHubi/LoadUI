@@ -2,7 +2,7 @@ local lp = game.Players.LocalPlayer
 
 local tween_s = game:GetService('TweenService')
 local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
-elseif 
+
 local s = {
 	Pupple = Vector3.new(102.96784210205078, 61.89976501464844, 131.00253295898438),
 	Yellow = Vector3.new(142.66383361816406, 61.89976119995117, 26.26506233215332),
