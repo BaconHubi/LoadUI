@@ -1,0 +1,342 @@
+local lp = game.Players.LocalPlayer
+
+local tween_s = game:GetService('TweenService')
+local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+
+local loaltion = {
+	Position1 = Vector3.new(-1881.9395751953125, -396.89019775390625, 928.7410888671875),
+	Position2 = Vector3.new(-1860.3721923828125, -396.9002685546875, 928.931884765625),
+}
+
+local lobby = {
+	lobbyvisit = Vector3.new(-1916.722900390625, -396.74810791015625, 913.63623046875),
+	visit = Vector3.new(-1956.308837890625, -396.3363952636719, 911.7236328125),
+}
+
+local shop = {
+	ShopPoint = Vector3.new(-1978.9737548828125, -396.8002014160156, 912.6973876953125),
+	ShopRobux = Vector3.new(-1985.8385009765625, -410.69696044921875, 911.173828125),
+	ShopPremium = Vector3.new(-1884.328369140625, -396.8499755859375, 910.9135131835938),
+}
+
+local buy = {
+	Torch = Vector3.new(-1962.0361328125, -396.1004333496094, 924.3477172851562),
+	GreenTorch = Vector3.new(-1984.7540283203125, -396.41448974609375, 924.2897338867188),
+	Pizza = Vector3.new(-1970.007568359375, -396.6014099121094, 924.0316772460938),
+	RocketShoes = Vector3.new(-1977.93115234375, -396.65814208984375, 923.7304077148438),
+	SpeedyShoes = Vector3.new(-1991.7451171875, -396.63983154296875, 924.065185546875),
+	SpeedCoil = Vector3.new(-1994.29296875, -396.59149169921875, 917.5067138671875),
+	LavaCoil = Vector3.new(-1995.2103271484375, -396.5293884277344, 909.3560791015625),
+	ForceField = Vector3.new(-1991.4598388671875, -396.5747985839844, 902.0845336914062),
+	HealthPotion = Vector3.new(-1982.9525146484375, -396.0889892578125, 901.4588012695312),
+	SpeedPotion = Vector3.new(-1974.8446044921875, -396.5184631347656, 901.34326171875),
+	HealingCoil = Vector3.new(-1966.0025634765625, -396.5224609375, 901.6995239257812),
+}
+
+local buypremium = {
+	SuperCoil = Vector3.new(-1875.8548583984375, -395.91680908203125, 898.4942626953125),
+	BloxyAward = Vector3.new(-1875.9801025390625, -396.6756591796875, 907.3457641601562),
+	RulerCosmeti = Vector3.new(-1875.14111328125, -396.6777038574219, 915.1117553710938),
+	Radio = Vector3.new(-1875.1741943359375, -396.67645263671875, 921.0968017578125),
+	FreezeRay = Vector3.new(-1860.84423828125, -396.5704040527344, 911.8258056640625),
+}
+
+local buyrobux = {
+	InsanePotion = Vector3.new(-1996.958251953125, -410.64599609375, 925.2542724609375),
+	BurstJetpack = Vector3.new(-2011.82275390625, -410.56170654296875, 926.4793090820312),
+	GravityCoil = Vector3.new(-2011.878173828125, -410.56170654296875, 916.6128540039062),
+	InsaneForceField = Vector3.new(-2011.8428955078125, -410.56170654296875, 908.7534790039062),
+	InsaneCoil = Vector3.new(-2012.9847412109375, -410.56170654296875, 900.9774780273438),
+	Points = Vector3.new(-1998.50439453125, -410.5221252441406, 897.53564453125),
+}
+
+local lobby1 = {
+	purple = Vector3.new(-1976.7603759765625, -383.5093688964844, 912.5784301757812),
+	startinsalan = Vector3.new(5.865102767944336, 1.485826015472412, -15.906158447265625),
+	startnormal = Vector3.new(-1915, -400.33929443359375, 872.5859375),
+}
+
+function bypass_teleport(v)
+	if lp.Character and
+	lp.Character:FindFirstChild('HumanoidRootPart') then
+		local cf = CFrame.new(v)
+		local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+		a:Play()
+	end
+end
+
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Ware Hub", "Synapse")
+
+local Tab = Window:NewTab("Unverisial")
+
+local TabSection = Tab:NewSection("Basic")
+
+TabSection:NewSlider("WalkSpeed", "", 100, 15, function(s) 
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+TabSection:NewSlider("JumpPower", "", 200, 50, function(s) 
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+local Tab = Window:NewTab("Lobby")
+local TabSection = Tab:NewSection("Select")
+
+TabSection:NewButton("Start Normal", "Go to Eletavor No Walk", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(1)
+bypass_teleport(lobby1.startnormal)
+end)
+
+TabSection:NewButton("Start Insant", "Maybe Long Myself", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(1)
+bypass_teleport(lobby1.startinsalan)
+end)
+
+TabSection:NewButton("Go Labbe 2", "Go My Light Purple", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(1)
+bypass_teleport(lobby1.purple)
+end)
+
+TabSection:NewButton("Lobby", "Vist Elevator , Shop", function()
+bypass_teleport(lobby.lobbyvisit)
+end)
+local Tab = Window:NewTab("Shop Bass")
+local TabSection = Tab:NewSection("Select")
+
+TabSection:NewButton("Shop Robux", "Use Robux", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(1)
+bypass_teleport(shop.ShopRobux)
+end)
+
+TabSection:NewButton("Shop Normal", "Use Point", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(1)
+bypass_teleport(shop.ShopPoint)
+end)
+
+TabSection:NewButton("Shop Premium", "Use Point", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(1)
+bypass_teleport(shop.ShopPremium)
+end)
+
+local Tab = Window:NewTab("Shop Point Item")
+local TabSection = Tab:NewSection("Select")
+
+TabSection:NewButton("Torch", "Buy From Point : 199", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPoint)
+task.wait(2)
+bypass_teleport(buy.Torch)
+end)
+
+TabSection:NewButton("Green Torch", "Buy From Point : 399", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPoint)
+task.wait(2)
+bypass_teleport(buy.GreenTorch)
+end)
+
+TabSection:NewButton("Pizza", "Buy From Point : 230 ", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPoint)
+task.wait(2)
+bypass_teleport(buy.Pizza)
+end)
+
+TabSection:NewButton("RocketShoes", "Buy From Point : 300", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPoint)
+task.wait(2)
+bypass_teleport(buy.RocketShoes)
+end)
+
+TabSection:NewButton("SpeedyShoes", "Buy From Point : 450", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPoint)
+task.wait(2)
+bypass_teleport(buy.SpeedyShoes)
+end)
+
+TabSection:NewButton("SpeedCoil", "Buy From Point : 199", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPoint)
+task.wait(2)
+bypass_teleport(buy.SpeedCoil)
+end)
+
+TabSection:NewButton("LavaCoil", "Buy From Point : 400", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPoint)
+task.wait(2)
+bypass_teleport(buy.LavaCoil)
+end)
+
+TabSection:NewButton("Force Field", "Buy From Point : 799", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPoint)
+task.wait(2)
+bypass_teleport(buy.ForceField)
+end)
+
+TabSection:NewButton("HealthPotion", "Buy From Point : 230", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPoint)
+task.wait(2)
+bypass_teleport(buy.HealthPotion)
+end)
+
+TabSection:NewButton("SpeedPotion", "Buy From Point : 199", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPoint)
+task.wait(2)
+bypass_teleport(buy.SpeedPotion)
+end)
+
+TabSection:NewButton("HealingCoil", "Buy From Point : 199", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPoint)
+task.wait(2)
+bypass_teleport(buy.HealingCoil)
+end)
+
+local Tab = Window:NewTab("Shop Robux Item")
+local TabSection = Tab:NewSection("Select")
+
+TabSection:NewButton("InsanePotion", "Buy From Robux : 62", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopRobux)
+task.wait(2)
+bypass_teleport(buyrobux.InsanePotion)
+task.wait(2)
+bypass_teleport(shop.ShopRobux)
+end)
+
+TabSection:NewButton("Burst Jetpack", "Buy From Robux : 24", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopRobux)
+task.wait(2)
+bypass_teleport(buyrobux.BurstJetpack)
+task.wait(2)
+bypass_teleport(shop.ShopRobux)
+end)
+
+TabSection:NewButton("GravityCoil", "Buy From Robux : 34", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopRobux)
+task.wait(2)
+bypass_teleport(buyrobux.GravityCoil)
+task.wait(2)
+bypass_teleport(shop.ShopRobux)
+end)
+
+TabSection:NewButton("ForceField", "Buy From Robux : 29", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopRobux)
+task.wait(2)
+bypass_teleport(buyrobux.InsaneForceField)
+task.wait(2)
+bypass_teleport(shop.ShopRobux)
+end)
+
+TabSection:NewButton("InsaneCoil", "Buy From Robux : 48", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopRobux)
+task.wait(2)
+bypass_teleport(buyrobux.InsaneCoil)
+task.wait(2)
+bypass_teleport(shop.ShopRobux)
+end)
+
+TabSection:NewButton("+3600 Points", "Buy From Robux : 26", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopRobux)
+task.wait(2)
+bypass_teleport(buyrobux.Points)
+task.wait(2)
+bypass_teleport(shop.ShopRobux)
+end)
+
+local Tab = Window:NewTab("Shop Premium Item")
+local TabSection = Tab:NewSection("Select")
+
+TabSection:NewButton("SuperCoil", "Buy From Point : ", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPremium)
+task.wait(2)
+bypass_teleport(buypremium.SuperCoil)
+task.wait(1,5)
+bypass_teleport(shop.ShopPremium)
+end)
+
+TabSection:NewButton("BloxyAward", "Buy From Point : ", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPremium)
+wait(2)
+bypass_teleport(buypremium.BloxyAward)
+task.wait(1,5)
+bypass_teleport(shop.ShopPremium)
+end)
+
+TabSection:NewButton("RulerCosmeti", "Buy From Point : ", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPremium)
+task.wait(2)
+bypass_teleport(buypremium.RulerCosmeti)
+task.wait(1,5)
+bypass_teleport(shop.ShopPremium)
+end)
+
+TabSection:NewButton("Radio", "Buy From Point : ", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPremium)
+task.wait(2)
+bypass_teleport(buypremium.Radio)
+task.wait(1,5)
+bypass_teleport(shop.ShopPremium)
+end)
+
+TabSection:NewButton("FreezeRay", "Buy From Point : ", function()
+bypass_teleport(lobby.lobbyvisit)
+task.wait(2)
+bypass_teleport(shop.ShopPremium)
+task.wait(2)
+bypass_teleport(loaltion.Position1)
+task.wait(3)
+bypass_teleport(loaltion.Position2)
+task.wait(1)
+bypass_teleport(buypremium.FreezeRay)
+task.wait(1,5)
+bypass_teleport(shop.ShopPremium)
+end)
+
+--[[
+setclipboard(tostring(lp.Character.HumanoidRootPart.Position))
+]]
