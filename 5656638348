@@ -15,7 +15,7 @@ local s = {
 }
 
 local g = {
-	Pupple = Vector3.new(84.71648406982422, 61.78913116455078, -111.79570007324219),
+	Pupple = Vector3.new(132.05189514160156, 61.78913116455078, 114.34839630126953),
 	Yellow = Vector3.new(153.53541564941406, 61.78913116455078, -6.406278133392334),
 	Blue = Vector3.new(84.71648406982422, 61.78913116455078, -111.79570007324219),
 	Green = Vector3.new(-33.18332290649414, 61.78913116455078, -131.68658447265625),
@@ -74,34 +74,50 @@ end)
 local TabSection = Tab:NewSection("Select")
 
 TabSection:NewButton("Purple", "Purple Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(v.Pupple)
 end)
 
 TabSection:NewButton("Yellow", "Yellow Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(v.Yellow)
 end)
 
 TabSection:NewButton("Blue", "Blue Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(v.Blue)
 end)
 
 TabSection:NewButton("Green", "Green Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(v.Green)
 end)
 
 TabSection:NewButton("Red", "Red Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(v.Red)
 end)
 
 TabSection:NewButton("Black", "Black Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(v.Black)
 end)
 
 TabSection:NewButton("Pink", "Pink Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(v.Pink)
 end)
 
 TabSection:NewButton("Orange", "Orange", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(v.Orange)
 end)
 
@@ -109,34 +125,50 @@ local Tab = Window:NewTab("Base Tycoon")
 local TabSection = Tab:NewSection("Select")
 
 TabSection:NewButton("Purple", "Purple Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(s.Pupple)
 end)
 
 TabSection:NewButton("Yellow", "Yellow Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(s.Yellow)
 end)
 
 TabSection:NewButton("Blue", "Blue Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(s.Blue)
 end)
 
 TabSection:NewButton("Green", "Green Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(s.Green)
 end)
 
 TabSection:NewButton("Red", "Red Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(s.Red)
 end)
 
 TabSection:NewButton("Black", "Black Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(s.Black)
 end)
 
 TabSection:NewButton("Pink", "Pink Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(s.Pink)
 end)
 
 TabSection:NewButton("Orange", "Orange", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(s.Orange)
 end)
 
@@ -144,34 +176,50 @@ local Tab = Window:NewTab("Go Tycoon")
 local TabSection = Tab:NewSection("Select")
 
 TabSection:NewButton("Purple", "Purple Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(g.Pupple)
 end)
 
 TabSection:NewButton("Yellow", "Yellow Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(g.Yellow)
 end)
 
 TabSection:NewButton("Blue", "Blue Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(g.Blue)
 end)
 
 TabSection:NewButton("Green", "Green Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(g.Green)
 end)
 
 TabSection:NewButton("Red", "Red Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(g.Red)
 end)
 
 TabSection:NewButton("Black", "Black Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(g.Black)
 end)
 
 TabSection:NewButton("Pink", "Pink Tycoon", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(g.Pink)
 end)
 
 TabSection:NewButton("Orange", "Orange", function()
+bypass_teleport(l.lobby)
+task.wait(2)
 bypass_teleport(g.Orange)
 end)
 --[[
