@@ -137,19 +137,6 @@ LeftGroupBox:AddToggle('MyToggle', {
     end
 })
 
-LeftGroupBox:AddToggle('MyToggle', {
-    Text = 'Location Walk',
-    Default = false,
-    Tooltip = 'Auto Set Location To Walk Byt Died Doesn Teleport Back',
-    Callback = function(Value)
-    end
-})
-while true do
-	task.wait(2)
-	pcall(function()
-	Library:Notify(lp.Character.HumanoidRootPart.Position, 3)
-end)
-end
 local LeftGroupBox = Tabs.Teleport:AddRightGroupbox('Shop')
 
 local MyButton = LeftGroupBox:AddButton({
