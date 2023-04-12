@@ -1,0 +1,18 @@
+local ismobile = game:GetService("UserInputService").TouchEnabled
+local ispc = game:GetService("UserInputService").KeyboardEnabled
+
+if game.PlaceId == 5656638348 then
+	if ismobile then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/BlackHubT/LoadUI/main/SwordFightingTycoonMoblie"),true)()
+	elseif ispc then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/BlackHubT/LoadUI/main/SwordFightingTycoonPc"),true)()
+	end
+end
+
+if game.PlaceId == 4104106043 then
+	if ismobile then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/BlackHubT/LoadUI/main/InsaneElevatorMoblie"),true)()
+	elseif ispc then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/BlackHubT/LoadUI/main/InsaneElevatorPC"),true)()
+	end
+end
