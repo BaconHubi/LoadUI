@@ -1,3 +1,5 @@
+# Loading Ui With Device Pc And Moblie
+
 local ismobile = game:GetService("UserInputService").TouchEnabled
 local ispc = game:GetService("UserInputService").KeyboardEnabled
 
