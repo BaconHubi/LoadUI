@@ -128,15 +128,6 @@ bypass_teleport(lobby1.purple)
     Tooltip = 'Go My Stat 2 In Light Purple'
 })
 
-LeftGroupBox:AddToggle('MyToggle', {
-    Text = 'Anti Death / Teleport In Sky',
-    Default = false,
-    Tooltip = 'Auto Teleport In Sky To The End Teleport Back In Elevator',
-    Callback = function(Value)
-        
-    end
-})
-
 local LeftGroupBox = Tabs.Teleport:AddRightGroupbox('Shop')
 
 local MyButton = LeftGroupBox:AddButton({
