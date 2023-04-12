@@ -429,7 +429,7 @@ bypass_teleport(shop.ShopRobux)
     Tooltip = 'Buy From Robux : 26'
 })
 
-local RightGroupBox = Tabs.Buy:AddLeftGroupbox('Shop Premium')
+local RightGroupBox = Tabs.Buy:AddRightGroupbox('Shop Premium')
 
 local MyButton = RightGroupBox:AddButton({
     Text = 'SuperCoil',
@@ -443,7 +443,7 @@ task.wait(1,5)
 bypass_teleport(shop.ShopPremium)
     end,
     DoubleClick = false,
-    Tooltip = 'Buy From Point : '
+    Tooltip = 'Buy From Point : 230'
 })
 
 local MyButton = RightGroupBox:AddButton({
@@ -458,7 +458,7 @@ task.wait(1,5)
 bypass_teleport(shop.ShopPremium)
     end,
     DoubleClick = false,
-    Tooltip = ''
+    Tooltip = 'Buy From Point : 399'
 })
 
 local MyButton = RightGroupBox:AddButton({
@@ -473,7 +473,7 @@ task.wait(1,5)
 bypass_teleport(shop.ShopPremium)
     end,
     DoubleClick = false,
-    Tooltip = ''
+    Tooltip = 'Buy From Point : 525'
 })
 
 local MyButton = RightGroupBox:AddButton({
@@ -488,7 +488,7 @@ task.wait(1,5)
 bypass_teleport(shop.ShopPremium)
     end,
     DoubleClick = false,
-    Tooltip = ''
+    Tooltip = 'Buy From Point : 699'
 })
 
 local MyButton = RightGroupBox:AddButton({
@@ -511,7 +511,7 @@ task.wait(1,5)
 bypass_teleport(shop.ShopPremium)
     end,
     DoubleClick = false,
-    Tooltip = ''
+    Tooltip = 'Buy From Point : 899'
 })
 
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
