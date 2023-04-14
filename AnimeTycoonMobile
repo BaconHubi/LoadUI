@@ -1,0 +1,277 @@
+local lp = game.Players.LocalPlayer
+
+local tween_s = game:GetService('TweenService')
+local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+
+local go = {
+	Deku = Vector3.new(-126.38655853271484, 3.695082426071167, -156.49691772460938),
+	Goku = Vector3.new(-14.000070571899414, 3.695082902908325, -199.5044403076172),
+	Naruto = Vector3.new(104.39920043945312, 3.695082426071167, -169.02565002441406),
+	Bakugo = Vector3.new(182.8889617919922, 3.6950833797454834, -74.15387725830078),
+	Kakashi = Vector3.new(197.991943359375, 3.8750839233398438, 53.50619125366211),
+	Ichigo = Vector3.new(135.96707153320312, 3.695082902908325, 157.2706756591797),
+	luffy = Vector3.new(18.237754821777344, 3.695082902908325, 203.58689880371094),
+	Sasuke = Vector3.new(-101.73721313476562, 3.695082426071167, 174.5860595703125),
+	Saitama = Vector3.new(-186.11155700683594, 3.6950833797454834, 73.26641082763672),
+	Tanjiro = Vector3.new(-189.45310974121094, 3.695082426071167, -50.9559440612793),
+}
+
+local select = {
+	Deku = Vector3.new(-112.13138580322266, 3.7950875759124756, -162.11878967285156),
+	Goku = Vector3.new(-1.3138055801391602, 3.804980754852295, -195.47804260253906),
+	Naruto = Vector3.new(110.36470794677734, 3.801683187484741, -159.82240295410156),
+	Bakugo = Vector3.new(183.4174346923828, 3.741680145263672, -62.77804183959961),
+	Kakashi = Vector3.new(191.43939208984375, 3.7950875759124756, 65.14969635009766),
+	Ichigo = Vector3.new(121.79991912841797, 3.8115761280059814, 161.84152221679688),
+	luffy = Vector3.new(4.684149265289307, 3.695082902908325, 200.63986206054688),
+	Sasuke = Vector3.new(-111.27975463867188, 3.7950875759124756, 164.34426879882812),
+	Saitama = Vector3.new(-185.89662170410156, 3.7950875759124756, 58.12101745605469),
+	Tanjiro = Vector3.new(-179.80618286132812, 3.695082426071167, -64.23481750488281),
+}
+
+local view = {
+	Deku = Vector3.new(-32.17964553833008, 3.4999992847442627, -48.11982727050781),
+	Goku = Vector3.new(-0.933332085609436, 3.4999992847442627, -55.857337951660156),
+	Naruto = Vector3.new(30.63260269165039, 3.4999992847442627, -44.52976608276367),
+	Bakugo = Vector3.new(51.773338317871094, 3.4999992847442627, -13.79228401184082),
+	Kakashi = Vector3.new(56.75048828125, 3.4999992847442627, 24.595840454101562),
+	Ichigo = Vector3.new(40.63330841064453, 3.4999992847442627, 47.72107696533203),
+	Luffy = Vector3.new(3.132903575897217, 3.4999992847442627, 60.040916442871094),
+	Sasuke = Vector3.new(-33.063865661621094, 3.4999992847442627, 48.592567443847656),
+	Saitama = Vector3.new(-51.901634216308594, 3.4999992847442627, 21.529809951782227),
+	Tanjiro = Vector3.new(-47.80595016479492, 3.4999992847442627, -15.534028053283691),
+}
+
+local lobby = {
+	All = Vector3.new(0.001467078342102468, 3.4999992847442627, 0.0978301540017128),
+}
+function bypass_teleport(v)
+	if lp.Character and
+	lp.Character:FindFirstChild('HumanoidRootPart') then
+		local cf = CFrame.new(v)
+		local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+		a:Play()
+	end
+end
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Ware Hub", "Synapse")
+
+local Tab = Window:NewTab("Unverisial")
+
+local TabSection = Tab:NewSection("Basic")
+
+TabSection:NewSlider("WalkSpeed", "", 100, 15, function(s) 
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+TabSection:NewSlider("JumpPower", "", 200, 50, function(s) 
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+local Tab = Window:NewTab("Select Tycoon")
+local TabSection = Tab:NewSection("Lobby")
+
+TabSection:NewButton("Lobby", "Go Lobby By White Team", function()
+	bypass_teleport(lobby.All)
+end)
+
+local TabSection = Tab:NewSection("Select")
+
+TabSection:NewButton("Deku", "Go Tycoon You Select", function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Deku)
+end)
+
+TabSection:NewButton("Goku", "Go Tycoon You Select", function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Goku)
+end)
+
+TabSection:NewButton("Naruto", "Go Tycoon You Select", function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Naruto)
+end)
+
+TabSection:NewButton("Bakugo", "Go Tycoon You Select", function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Bakugo)
+end)
+
+TabSection:NewButton("Kakashi", "Go Tycoon You Select", function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Kakashi)
+end)
+
+TabSection:NewButton("Ichigo", "Go Tycoon You Select", function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Ichigo)
+end)
+
+TabSection:NewButton("Luffy", "Go Tycoon You Select", function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Luffy)
+end)
+
+TabSection:NewButton("Sasuke", "Go Tycoon You Select", function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Sasuke)
+end)
+
+TabSection:NewButton("Saitama", "Go Tycoon You Select", function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Saitama)
+end)
+
+TabSection:NewButton("Tanjiro", "Go Tycoon You Select", function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Tanjiro)
+end)
+
+local Tab = Window:NewTab("Go Tycoon")
+local TabSection = Tab:NewSection("Lobby")
+
+TabSection:NewButton("Lobby", "Go Lobby By White Team", function()
+	bypass_teleport(lobby.All)
+end)
+
+local TabSection = Tab:NewSection("Select")
+
+TabSection:NewButton("Deku", "Go House Players", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Deku)
+end)
+
+TabSection:NewButton("Goku", "Go House Players", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Goku)
+end)
+
+TabSection:NewButton("Naruto", "Go House Players", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Naruto)
+end)
+
+TabSection:NewButton("Bakugo", "Go House Players", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Bakugo)
+end)
+
+TabSection:NewButton("Kakashi", "Go House Players", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Kakashi)
+end)
+
+TabSection:NewButton("Ichigo", "Go House Players", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Ichigo)
+end)
+
+TabSection:NewButton("Luffy", "Go House Players", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.luffy)
+end)
+
+TabSection:NewButton("Sasuke", "Go House Players", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Sasuke)
+end)
+
+TabSection:NewButton("Saitama", "Go House Players", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Saitama)
+end)
+
+TabSection:NewButton("Tanjiro", "Go House Players", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Tanjiro)
+end)
+
+local Tab = Window:NewTab("View Tycoon")
+local TabSection = Tab:NewSection("Lobby")
+
+TabSection:NewButton("Lobby", "Go Lobby By White Team", function()
+	bypass_teleport(lobby.All)
+end)
+
+local TabSection = Tab:NewSection("Select")
+
+TabSection:NewButton("Deku", "View Tycoon In Label", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Deku)
+end)
+
+TabSection:NewButton("Goku", "View Tycoon In Label", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Goku)
+end)
+
+TabSection:NewButton("Naruto", "View Tycoon In Label", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Naruto)
+end)
+
+TabSection:NewButton("Bakugo", "View Tycoon In Label", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Bakugo)
+end)
+
+TabSection:NewButton("Kakashi", "View Tycoon In Label", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Kakashi)
+end)
+
+TabSection:NewButton("Ichigo", "View Tycoon In Label", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Ichigo)
+end)
+
+TabSection:NewButton("Luffy", "View Tycoon In Label", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Luffy)
+end)
+
+TabSection:NewButton("Sasuke", "View Tycoon In Label", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Sasuke)
+end)
+
+TabSection:NewButton("Saitama", "View Tycoon In Label", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Saitama)
+end)
+
+TabSection:NewButton("Tanjiro", "View Tycoon In Label", function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Tanjiro)
+end)
