@@ -219,7 +219,7 @@ bypass_teleport(v.Orange)
     Tooltip = 'Visit Home'
 })
 
-local LeftGroupBox = Tabs.Tycoon:AddLeftGroupbox('Base Tycoon')
+local LeftGroupBox = Tabs.Tycoon:AddRightGroupbox('Base Tycoon')
 
 local MyButton = LeftGroupBox:AddButton({
     Text = 'Purple Tycoon',
