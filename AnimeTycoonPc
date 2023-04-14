@@ -1,0 +1,510 @@
+local lp = game.Players.LocalPlayer
+
+local tween_s = game:GetService('TweenService')
+local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+
+local go = {
+	Deku = Vector3.new(-126.38655853271484, 3.695082426071167, -156.49691772460938),
+	Goku = Vector3.new(-14.000070571899414, 3.695082902908325, -199.5044403076172),
+	Naruto = Vector3.new(104.39920043945312, 3.695082426071167, -169.02565002441406),
+	Bakugo = Vector3.new(182.8889617919922, 3.6950833797454834, -74.15387725830078),
+	Kakashi = Vector3.new(197.991943359375, 3.8750839233398438, 53.50619125366211),
+	Ichigo = Vector3.new(135.96707153320312, 3.695082902908325, 157.2706756591797),
+	luffy = Vector3.new(18.237754821777344, 3.695082902908325, 203.58689880371094),
+	Sasuke = Vector3.new(-101.73721313476562, 3.695082426071167, 174.5860595703125),
+	Saitama = Vector3.new(-186.11155700683594, 3.6950833797454834, 73.26641082763672),
+	Tanjiro = Vector3.new(-189.45310974121094, 3.695082426071167, -50.9559440612793),
+}
+
+local select = {
+	Deku = Vector3.new(-112.13138580322266, 3.7950875759124756, -162.11878967285156),
+	Goku = Vector3.new(-1.3138055801391602, 3.804980754852295, -195.47804260253906),
+	Naruto = Vector3.new(110.36470794677734, 3.801683187484741, -159.82240295410156),
+	Bakugo = Vector3.new(183.4174346923828, 3.741680145263672, -62.77804183959961),
+	Kakashi = Vector3.new(191.43939208984375, 3.7950875759124756, 65.14969635009766),
+	Ichigo = Vector3.new(121.79991912841797, 3.8115761280059814, 161.84152221679688),
+	luffy = Vector3.new(4.684149265289307, 3.695082902908325, 200.63986206054688),
+	Sasuke = Vector3.new(-111.27975463867188, 3.7950875759124756, 164.34426879882812),
+	Saitama = Vector3.new(-185.89662170410156, 3.7950875759124756, 58.12101745605469),
+	Tanjiro = Vector3.new(-179.80618286132812, 3.695082426071167, -64.23481750488281),
+}
+
+local view = {
+	Deku = Vector3.new(-32.17964553833008, 3.4999992847442627, -48.11982727050781),
+	Goku = Vector3.new(-0.933332085609436, 3.4999992847442627, -55.857337951660156),
+	Naruto = Vector3.new(30.63260269165039, 3.4999992847442627, -44.52976608276367),
+	Bakugo = Vector3.new(51.773338317871094, 3.4999992847442627, -13.79228401184082),
+	Kakashi = Vector3.new(56.75048828125, 3.4999992847442627, 24.595840454101562),
+	Ichigo = Vector3.new(40.63330841064453, 3.4999992847442627, 47.72107696533203),
+	Luffy = Vector3.new(3.132903575897217, 3.4999992847442627, 60.040916442871094),
+	Sasuke = Vector3.new(-33.063865661621094, 3.4999992847442627, 48.592567443847656),
+	Saitama = Vector3.new(-51.901634216308594, 3.4999992847442627, 21.529809951782227),
+	Tanjiro = Vector3.new(-47.80595016479492, 3.4999992847442627, -15.534028053283691),
+}
+
+local lobby = {
+	All = Vector3.new(0.001467078342102468, 3.4999992847442627, 0.0978301540017128),
+}
+
+function bypass_teleport(v)
+	if lp.Character and
+	lp.Character:FindFirstChild('HumanoidRootPart') then
+		local cf = CFrame.new(v)
+		local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+		a:Play()
+	end
+end
+
+local repo = 'https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/'
+
+local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
+local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
+
+local Window = Library:CreateWindow({
+    Title = 'Ware Hub',
+    Center = true,
+    AutoShow = true,
+    TabPadding = 8
+})
+
+local Tabs = {
+    Tycoon = Window:AddTab('Teleport'),
+    ['Unverisal'] = Window:AddTab('Unverisal'),
+    ['UI Settings'] = Window:AddTab('UI Settings'),
+}
+
+local LeftGroupBox = Tabs.Tycoon:AddLeftGroupbox('')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Lobby',
+    Func = function()
+	bypass_teleport(lobby.All)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go Lobby By White Team'
+})
+
+
+
+local LeftGroupBox = Tabs.Tycoon:AddRightGroupbox('Selecet Tycoon')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Deku',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Deku)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon You Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Goku',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Goku)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon You Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Naruto',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Naruto)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon You Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Bakugo',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Bakugo)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon You Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Kakashi',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Kakashi)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon You Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Ichigo',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Ichigo)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon You Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Luffy',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Luffy)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon You Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Sasuke',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Sasuke)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon You Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Saitama',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Saitama)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon You Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Tanjiro',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1.5)
+	bypass_teleport(select.Tanjiro)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon You Select'
+})
+
+local LeftGroupBox = Tabs.Tycoon:AddRightGroupbox('View Tycoon')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Deku',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Deku)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Goku',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Goku)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Naruto',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Naruto)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Bakugo',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Bakugo)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Kakashi',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Kakashi)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Ichigo',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Ichigo)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Luffy',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Luffy)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Sasuke',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Sasuke)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Saitama',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Saitama)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Tanjiro',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(view.Tanjiro)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local LeftGroupBox = Tabs.Tycoon:AddLeftGroupbox('Go Tycoon')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Deku',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Deku)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Goku',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Goku)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Naruto',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Naruto)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Bakugo',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Bakugo)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Kakashi',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Kakashi)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Ichigo',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Ichigo)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Luffy',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.luffy)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Sasuke',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Sasuke)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Saitama',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Saitama)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Tanjiro',
+    Func = function()
+	bypass_teleport(lobby.All)
+	task.wait(1,5)
+	bypass_teleport(go.Tanjiro)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go House Players'
+})
+
+local LeftGroupBox = Tabs.Unverisal:AddLeftGroupbox('Hummanoid')
+
+LeftGroupBox:AddSlider('MySlider', {
+    Text = 'Speed Charater',
+    Default = 0,
+    Min = 15,
+    Max = 100,
+    Rounding = 1,
+    Compact = false,
+    Callback = function(Value)
+        lp.Character.Humanoid.WalkSpeed = Value
+    end
+})
+
+LeftGroupBox:AddSlider('MySlider', {
+    Text = 'Jump Charater',
+    Default = 0,
+    Min = 50,
+    Max = 200,
+    Rounding = 1,
+    Compact = false,
+    Callback = function(Value)
+        lp.Character.Humanoid.JumpPower = Value
+    end
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Infinity Yield',
+    Func = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Infinity Yield Me No Reason'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Cmd-X',
+    Func = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source', true))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Cmd-X Me No Reason'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Domain X',
+    Func = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/DomainX/main/source',true))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Sirius Scripts'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Orca Hub',
+    Func = function()
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/latest.lua"))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Orca Hub Me No Reason'
+})
+
+local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
+
+MenuGroup:AddButton('Unload', function() Library:Unload() end)
+MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' })
+
+Library.ToggleKeybind = Options.MenuKeybind 
+
+ThemeManager:SetLibrary(Library)
+SaveManager:SetLibrary(Library)
+
+SaveManager:IgnoreThemeSettings()
+
+SaveManager:SetIgnoreIndexes({ 'MenuKeybind' })
+
+ThemeManager:SetFolder('MyScriptHub')
+
+SaveManager:SetFolder('MyScriptHub/specific-game')
+
+SaveManager:BuildConfigSection(Tabs['UI Settings'])
+
+ThemeManager:ApplyToTab(Tabs['UI Settings'])
+
+SaveManager:LoadAutoloadConfig()
