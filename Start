@@ -18,3 +18,11 @@ if game.PlaceId == 4104106043 then
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/BlackHubT/LoadUI/main/InsaneElevatorPC"),true)()
 	end
 end
+
+if game.PlaceId == 5963376918 then
+	if ismobile then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/BlackHubT/LoadUI/main/AnimeTycoonMobile"),true)()
+	elseif ispc then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/BlackHubT/LoadUI/main/AnimeTycoonPc"),true)()
+	end
+end
