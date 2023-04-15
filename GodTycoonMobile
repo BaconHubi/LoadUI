@@ -1,0 +1,254 @@
+local lp = game.Players.LocalPlayer
+
+local tween_s = game:GetService('TweenService')
+local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+
+local lobby = {
+	Deep = Vector3.new(75.09249114990234, 134.79495239257812, -170.50071716308594),
+	Hight = Vector3.new(76.03958129882812, 151.08157348632812, -169.82559204101562),
+}
+
+local s = {
+	Lighting = Vector3.new(203.0030975341797, 140.44744873046875, -297.9399108886719),
+	Ice = Vector3.new(255.74234008789062, 140.4791259765625, -172.79751586914062),
+	Light = Vector3.new(200.62416076660156, 140.42401123046875, -42.96549987792969),
+	Nature = Vector3.new(75.66619873046875, 140.28831481933594, 9.497258186340332),
+	Wind = Vector3.new(-52.94221496582031, 140.38885498046875, -45.81986999511719),
+	Fire = Vector3.new(-104.98922729492188, 140.42222595214844, -172.4712677001953),
+	Poison = Vector3.new(-50.73514938354492, 140.35369873046875, -299.3833923339844),
+	Death = Vector3.new(75.68376922607422, 140.26930236816406, -351.2994079589844),
+}
+
+local g = {
+	Lighting = Vector3.new(174.55601501464844, 140.47853088378906, -332.24609375),
+	Ice = Vector3.new(258.95806884765625, 140.4791259765625, -217.42527770996094),
+	Light = Vector3.new(236.90664672851562, 140.4540557861328, -73.58039093017578),
+	Nature = Vector3.new(119.08499145507812, 140.28237915039062, 12.295754432678223),
+	Wind = Vector3.new(-23.35021209716797, 140.46435546875, -10.17184066772461),
+	Fire = Vector3.new(-109.32257080078125, 140.42222595214844, -125.842529296875),
+	Poison = Vector3.new(-85.34889221191406, 140.37237548828125, -270.39923095703125),
+	Death = Vector3.new(29.79586410522461, 140.26930236816406, -354.6832275390625),
+}
+
+local v = {
+	Lighting = Vector3.new(136.6207733154297, 140.31199645996094, -232.23419189453125),
+	Ice = Vector3.new(161.93296813964844, 140.31199645996094, -171.67860412597656),
+	Light = Vector3.new(136.42901611328125, 140.31199645996094, -109.70694732666016),
+	Nature = Vector3.new(75.52445220947266, 140.31199645996094, -84.93717956542969),
+	Wind = Vector3.new(14.4895658493042, 140.31199645996094, -110.46461486816406),
+	Fire = Vector3.new(-10.451353073120117, 140.31199645996094, -172.01824951171875),
+	Poison = Vector3.new(14.98952865600586, 140.31199645996094, -232.74961853027344),
+	Death = Vector3.new(75.75739288330078, 140.31199645996094, -257.874755859375),
+}
+
+function bypass_teleport(v)
+	if lp.Character and
+	lp.Character:FindFirstChild('HumanoidRootPart') then
+		local cf = CFrame.new(v)
+		local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+		a:Play()
+	end
+end
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Ware Hub", "Synapse")
+
+local Tab = Window:NewTab("Unverisial")
+
+local TabSection = Tab:NewSection("Basic")
+
+TabSection:NewSlider("WalkSpeed", "", 100, 15, function(s) 
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+TabSection:NewSlider("JumpPower", "", 200, 50, function(s) 
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+local Tab = Window:NewTab("Go Tycoon")
+local TabSection = Tab:NewSection("Lobby")
+
+TabSection:NewButton("Teleport Hight", "", function()
+	bypass_teleport(lobby.Hight)
+end)
+
+TabSection:NewButton("Teleport Deep", "", function()
+	bypass_teleport(lobby.Deep)
+end)
+
+local TabSection = Tab:NewSection("Tycoon")
+
+TabSection:NewButton("Lighting", "Teleport In House Players", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Lighting)
+end)
+
+TabSection:NewButton("Ice", "Teleport In House Players", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Ice)
+end)
+
+TabSection:NewButton("Light", "Teleport In House Players", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Light)
+end)
+
+TabSection:NewButton("Nature", "Teleport In House Players", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Nature)
+end)
+
+TabSection:NewButton("Wind", "Teleport In House Players", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Wind)
+end)
+
+TabSection:NewButton("Fire", "Teleport In House Players", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Fire)
+end)
+
+TabSection:NewButton("Poison", "Teleport In House Players", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Poison)
+end)
+
+TabSection:NewButton("Death", "Teleport In House Players", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Death)
+end)
+
+local Tab = Window:NewTab("View Tycoon")
+local TabSection = Tab:NewSection("Lobby")
+
+TabSection:NewButton("Teleport Hight", "", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Lighting)
+end)
+
+TabSection:NewButton("Teleport Deep", "", function()
+	bypass_teleport(lobby.Deep)
+end)
+
+local TabSection = Tab:NewSection("Tycoon")
+
+TabSection:NewButton("Lighting", "View NPC Tycoon", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Lighting)
+end)
+
+TabSection:NewButton("Ice", "View NPC Tycoon", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Ice)
+end)
+
+TabSection:NewButton("Light", "View NPC Tycoon", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Light)
+end)
+
+TabSection:NewButton("Nature", "View NPC Tycoon", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Nature)
+end)
+
+TabSection:NewButton("Wind", "View NPC Tycoon", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Wind)
+end)
+
+TabSection:NewButton("Fire", "View NPC Tycoon", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Fire)
+end)
+
+TabSection:NewButton("Poison", "View NPC Tycoon", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Poison)
+end)
+
+TabSection:NewButton("Death", "View NPC Tycoon", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Death)
+end)
+
+local Tab = Window:NewTab("Select Tycoon")
+local TabSection = Tab:NewSection("Lobby")
+
+TabSection:NewButton("Teleport Hight", "", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Lighting)
+end)
+
+TabSection:NewButton("Teleport Deep", "", function()
+	bypass_teleport(lobby.Deep)
+end)
+
+local TabSection = Tab:NewSection("Tycoon")
+
+TabSection:NewButton("Lighting", "Go You Tycoon Select", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Lighting)
+end)
+
+TabSection:NewButton("Ice", "Go You Tycoon Select", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Ice)
+end)
+
+TabSection:NewButton("Light", "Go You Tycoon Select", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Light)
+end)
+
+TabSection:NewButton("Nature", "Go You Tycoon Select", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Nature)
+end)
+
+TabSection:NewButton("Wind", "Go You Tycoon Select", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Wind)
+end)
+
+TabSection:NewButton("Fire", "Go You Tycoon Select", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Fire)
+end)
+
+TabSection:NewButton("Poison", "Go You Tycoon Select", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Poison)
+end)
+
+TabSection:NewButton("Death", "Go You Tycoon Select", function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Death)
+end)
+
