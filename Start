@@ -26,3 +26,11 @@ if game.PlaceId == 5963376918 then
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/BlackHubT/LoadUI/main/AnimeTycoonPc"),true)()
 	end
 end
+
+if game.PlaceId == 5310443220 then
+	if ismobile then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/BlackHubT/LoadUI/main/GodTycoonMobile"),true)()
+	elseif ispc then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/BlackHubT/LoadUI/main/GodTycoonPc"),true)()
+	end
+end
