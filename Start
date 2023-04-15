@@ -34,3 +34,83 @@ if game.PlaceId == 5310443220 then
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/BlackHubT/LoadUI/main/GodTycoonPc"),true)()
 	end
 end
+
+if ispc then
+getgenv().RTX = true
+
+while RTX do
+
+task.wait(2)
+
+local lighting = game.Lighting
+
+for i,v in pairs(lighting:GetChildren()) do
+    v:Destroy()
+end
+
+local blur = Instance.new("BlurEffect", lighting)
+local bloom = Instance.new("BloomEffect", lighting)
+local atmosphere = Instance.new("Atmosphere", lighting)
+local sky = Instance.new("Sky", lighting)
+local colorc = Instance.new("ColorCorrectionEffect", lighting)
+local dof = Instance.new("DepthOfFieldEffect", lighting)
+local sunray = Instance.new("SunRaysEffect", lighting)
+
+
+--Color3.fromRGB()
+-- Lighting
+lighting.Ambient = Color3.fromRGB(33, 33, 33)
+lighting.Brightness = 5.25
+lighting.ColorShift_Bottom = Color3.fromRGB(0,0,0)
+lighting.ColorShift_Top = Color3.fromRGB(255, 247, 237)
+lighting.EnvironmentDiffuseScale = 0.203
+lighting.EnvironmentSpecularScale = 0.255
+lighting.GlobalShadows = true
+lighting.OutdoorAmbient = Color3.fromRGB(51, 54, 67)
+lighting.ShadowSoftness = 0.19
+lighting.ClockTime = 20
+lighting.GeographicLatitude = -1.12
+lighting.ExposureCompensation = 0.85
+
+-- Atmosphere
+atmosphere.Density = 0.364
+atmosphere.Offset = 0.556
+atmosphere.Color = Color3.fromRGB(200, 170, 108)
+atmosphere.Decay = Color3.fromRGB(92, 60, 14)
+atmosphere.Glare = 0
+atmosphere.Haze = 0
+
+-- Sky
+sky.CelestialBodiesShown = true
+sky.MoonAngularSize = 11
+sky.MoonTextureId = "rbxasset://sky/moon.jpg"
+sky.SkyboxBk = 'rbxasset://textures/sky/sky512_bk.tex'
+sky.SkyboxDn = 'rbxasset://textures/sky/sky512_dn.tex'
+sky.SkyboxFt = 'rbxasset://textures/sky/sky512_ft.tex'
+sky.SkyboxLf = 'rbxasset://textures/sky/sky512_lf.tex'
+sky.SkyboxRt = 'rbxasset://textures/sky/sky512_rt.tex'
+sky.SkyboxUp = 'rbxasset://textures/sky/sky512_up.tex'
+
+-- Bloom
+bloom.Intensity = 0.7
+bloom.Size = 10
+bloom.Threshold = 0.8
+
+-- Blur
+blur.Size = 5
+
+--Color Correction (Main)
+colorc.Brightness = 0.2
+colorc.Contrast = 0.5
+colorc.Contrast = 0.8
+colorc.Saturation = -0.3
+colorc.TintColor = Color3.fromRGB(255, 255, 226)
+
+-- Depth Of Field
+dof.FarIntensity = 0.077
+dof.FocusDistance = 21.54
+dof.InFocusRadius = 16.77
+dof.NearIntensity = 0.277
+--End
+end
+end
