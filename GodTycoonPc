@@ -1,0 +1,444 @@
+local lp = game.Players.LocalPlayer
+
+local tween_s = game:GetService('TweenService')
+local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+
+local lobby = {
+	Deep = Vector3.new(75.09249114990234, 134.79495239257812, -170.50071716308594),
+	Hight = Vector3.new(76.03958129882812, 151.08157348632812, -169.82559204101562),
+}
+
+local s = {
+	Lighting = Vector3.new(203.0030975341797, 140.44744873046875, -297.9399108886719),
+	Ice = Vector3.new(255.74234008789062, 140.4791259765625, -172.79751586914062),
+	Light = Vector3.new(200.62416076660156, 140.42401123046875, -42.96549987792969),
+	Nature = Vector3.new(75.66619873046875, 140.28831481933594, 9.497258186340332),
+	Wind = Vector3.new(-52.94221496582031, 140.38885498046875, -45.81986999511719),
+	Fire = Vector3.new(-104.98922729492188, 140.42222595214844, -172.4712677001953),
+	Poison = Vector3.new(-50.73514938354492, 140.35369873046875, -299.3833923339844),
+	Death = Vector3.new(75.68376922607422, 140.26930236816406, -351.2994079589844),
+}
+
+local g = {
+	Lighting = Vector3.new(174.55601501464844, 140.47853088378906, -332.24609375),
+	Ice = Vector3.new(258.95806884765625, 140.4791259765625, -217.42527770996094),
+	Light = Vector3.new(236.90664672851562, 140.4540557861328, -73.58039093017578),
+	Nature = Vector3.new(119.08499145507812, 140.28237915039062, 12.295754432678223),
+	Wind = Vector3.new(-23.35021209716797, 140.46435546875, -10.17184066772461),
+	Fire = Vector3.new(-109.32257080078125, 140.42222595214844, -125.842529296875),
+	Poison = Vector3.new(-85.34889221191406, 140.37237548828125, -270.39923095703125),
+	Death = Vector3.new(29.79586410522461, 140.26930236816406, -354.6832275390625),
+}
+
+local v = {
+	Lighting = Vector3.new(136.6207733154297, 140.31199645996094, -232.23419189453125),
+	Ice = Vector3.new(161.93296813964844, 140.31199645996094, -171.67860412597656),
+	Light = Vector3.new(136.42901611328125, 140.31199645996094, -109.70694732666016),
+	Nature = Vector3.new(75.52445220947266, 140.31199645996094, -84.93717956542969),
+	Wind = Vector3.new(14.4895658493042, 140.31199645996094, -110.46461486816406),
+	Fire = Vector3.new(-10.451353073120117, 140.31199645996094, -172.01824951171875),
+	Poison = Vector3.new(14.98952865600586, 140.31199645996094, -232.74961853027344),
+	Death = Vector3.new(75.75739288330078, 140.31199645996094, -257.874755859375),
+}
+
+function bypass_teleport(v)
+	if lp.Character and
+	lp.Character:FindFirstChild('HumanoidRootPart') then
+		local cf = CFrame.new(v)
+		local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+		a:Play()
+	end
+end
+
+local repo = 'https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/'
+
+local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
+local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
+
+local Window = Library:CreateWindow({
+    Title = 'Ware Hub',
+    Center = true,
+    AutoShow = true,
+    TabPadding = 8
+})
+
+local Tabs = {
+    Tycoon = Window:AddTab('Tycoon'),
+    ['Unverisal'] = Window:AddTab('Unverisal'),
+    ['UI Settings'] = Window:AddTab('UI Settings'),
+}
+
+local LeftGroupBox = Tabs.Tycoon:AddLeftGroupbox('Lobby')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Teleport In Hight',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Teleport In Deep',
+    Func = function()
+	bypass_teleport(lobby.Deep)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+local LeftGroupBox = Tabs.Tycoon:AddLeftGroupbox('Select Tycoon')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Lighting',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Lighting)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go You Tycoon Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Ice',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Ice)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go You Tycoon Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Light',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Light)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go You Tycoon Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Nature',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Nature)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go You Tycoon Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Wind',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Wind)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go You Tycoon Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Fire',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Fire)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go You Tycoon Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Poison',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Poison)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go You Tycoon Select'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Death',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(s.Death)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Go You Tycoon Select'
+})
+
+local LeftGroupBox = Tabs.Tycoon:AddRightGroupbox('Go Tycoon')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Lighting',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Lighting)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Teleport In House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Ice',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Ice)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Teleport In House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Light',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Light)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Teleport In House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Nature',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Nature)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Teleport In House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Wind',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Wind)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Teleport In House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Fire',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Fire)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Teleport In House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Poison',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Poison)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Teleport In House Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Death',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(g.Death)
+    end,
+    DoubleClick = false,
+    Tooltip = 'Teleport In House Players'
+})
+
+local LeftGroupBox = Tabs.Tycoon:AddLeftGroupbox('View Tycoon')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Lighting',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Lighting)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View NPC Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Ice',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Ice)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View NPC Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Light',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Light)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View NPC Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Nature',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Nature)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View NPC Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Wind',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Wind)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View NPC Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Fire',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Fire)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View NPC Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Poison',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Poison)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View NPC Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Death',
+    Func = function()
+	bypass_teleport(lobby.Hight)
+	task.wait(0.5)
+	bypass_teleport(v.Death)
+    end,
+    DoubleClick = false,
+    Tooltip = 'View NPC Tycoon'
+})
+
+local LeftGroupBox = Tabs.Unverisal:AddLeftGroupbox('Hummanoid')
+
+LeftGroupBox:AddSlider('MySlider', {
+    Text = 'Speed Charater',
+    Default = 0,
+    Min = 15,
+    Max = 100,
+    Rounding = 1,
+    Compact = false,
+    Callback = function(Value)
+        lp.Character.Humanoid.WalkSpeed = Value
+    end
+})
+
+LeftGroupBox:AddSlider('MySlider', {
+    Text = 'Jump Charater',
+    Default = 0,
+    Min = 50,
+    Max = 200,
+    Rounding = 1,
+    Compact = false,
+    Callback = function(Value)
+        lp.Character.Humanoid.JumpPower = Value
+    end
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Infinity Yield',
+    Func = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Infinity Yield Me No Reason'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Cmd-X',
+    Func = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source', true))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Cmd-X Me No Reason'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Domain X',
+    Func = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/DomainX/main/source',true))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Sirius Scripts'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Orca Hub',
+    Func = function()
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/latest.lua"))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Orca Hub Me No Reason'
+})
+local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
+
+MenuGroup:AddButton('Unload', function() Library:Unload() end)
+MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' })
+
+Library.ToggleKeybind = Options.MenuKeybind 
+
+ThemeManager:SetLibrary(Library)
+SaveManager:SetLibrary(Library)
+
+SaveManager:IgnoreThemeSettings()
+
+SaveManager:SetIgnoreIndexes({ 'MenuKeybind' })
+
+ThemeManager:SetFolder('MyScriptHub')
+
+SaveManager:SetFolder('MyScriptHub/specific-game')
+
+SaveManager:BuildConfigSection(Tabs['UI Settings'])
+
+ThemeManager:ApplyToTab(Tabs['UI Settings'])
+
+SaveManager:LoadAutoloadConfig()
