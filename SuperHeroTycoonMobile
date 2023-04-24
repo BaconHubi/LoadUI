@@ -90,8 +90,6 @@ local Tab = Window:NewTab("Go Tycoon")
 
 local TabSection = Tab:NewSection("Select")
 
-Section:NewLabel("Go My House Players / Can Noclip Wall No Use Unverisal")
-
 TabSection:NewButton("Green Lantern", "", function()
 	bypass_teleport(l.lobby)
 	task.wait(1)
@@ -156,8 +154,6 @@ local Tab = Window:NewTab("View Tycoon")
 
 local TabSection = Tab:NewSection("Select")
 
-Section:NewLabel("View My Tycoon")
-
 TabSection:NewButton("Green Lantern", "", function()
 		bypass_teleport(l.lobby)
 	task.wait(1)
@@ -221,8 +217,6 @@ end)
 local Tab = Window:NewTab("Base Tycoon")
 
 local TabSection = Tab:NewSection("Select")
-
-Section:NewLabel("Select You Tycoon")
 
 TabSection:NewButton("Green Lantern", "", function()
 		bypass_teleport(l.lobby)
