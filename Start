@@ -35,6 +35,14 @@ if game.PlaceId == 5310443220 then
 	end
 end
 
+if game.PlaceId == 574407221 then
+	if ismobile then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/BlackHubT/LoadUI/main/SuperHeroTycoonMobile"),true)()
+	elseif ispc then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/BlackHubT/LoadUI/main/SuperHeroTycoonPc),true)()
+	end
+end
+
 if ispc then
 getgenv().RTX = true
 
