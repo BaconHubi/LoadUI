@@ -1,0 +1,507 @@
+local lp = game.Players.LocalPlayer
+
+local tween_s = game:GetService('TweenService')
+local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+
+local s = {
+	 GreenLantern = Vector3.new(1223.718505859375, 62.099971771240234, 1240.2486572265625),
+	 SpiderMan = Vector3.new(1157.5606689453125, 62.49998474121094, 1149.21044921875),
+ 	 SuperMan = Vector3.new(1156.6749267578125, 62.09999465942383, 1037.6517333984375),
+	 AntMan = Vector3.new(1222.95654296875, 62.10000228881836, 944.9988403320312),
+	 BatMan = Vector3.new(1329.602783203125, 62.25645446777344, 909.128662109375),
+	 IronMan = Vector3.new(1437.9412841796875, 62.10000228881836, 943.787353515625),
+	 BlackPanther = Vector3.new(1504.6158447265625, 62.09999465942383, 1034.586181640625),
+	 TheHulk = Vector3.new(1505.40283203125, 62.0999755859375, 1147.071533203125),
+	 Thor = Vector3.new(1438.612548828125, 62.19721221923828, 1239.9825439453125),
+	 TheFlash = Vector3.new(1333.0760498046875, 62.099971771240234, 1274.75927734375),
+}
+local g = {
+	 GreenLantern = Vector3.new(1256.102294921875, 62.099971771240234, 1270.720947265625),
+	 SpiderMan = Vector3.new(1167.572998046875, 62.49998092651367, 1193.4923095703125),
+ 	 SuperMan = Vector3.new(1137.407958984375, 62.09999465942383, 1075.8994140625),
+	 AntMan = Vector3.new(1184.5928955078125, 62.10000228881836, 967.27490234375),
+	 BatMan = Vector3.new(1286.2562255859375, 62.100006103515625, 903.3939208984375),
+	 IronMan = Vector3.new(1407.2545166015625, 62.10000228881836, 914.2000732421875),
+	 BlackPanther = Vector3.new(1497.3067626953125, 62.09999465942383, 990.3644409179688),
+	 TheHulk = Vector3.new(1525.7022705078125, 62.0999755859375, 1107.263916015625),
+	 Thor = Vector3.new(1477.27392578125, 62.099971771240234, 1219.693603515625),
+	 TheFlash = Vector3.new(1374.776123046875, 62.099971771240234, 1280.3004150390625),
+}
+
+local v = {
+	 GreenLantern = Vector3.new(1310.3353271484375, 62.0853157043457, 1121.4085693359375),
+	 SpiderMan = Vector3.new(1298.3447265625, 62.35369873046875, 1102.0435791015625),
+ 	 SuperMan = Vector3.new(1298.1373291015625, 62.19055938720703, 1083.441162109375),
+	 AntMan = Vector3.new(1309.9312744140625, 62.281795501708984, 1066.16259765625),
+	 BatMan = Vector3.new(1331.7823486328125, 62.25645446777344, 1057.4993896484375),
+	 IronMan = Vector3.new(1351.39111328125, 62.06666946411133, 1061.72021484375),
+	 BlackPanther = Vector3.new(1366.9302978515625, 62.12201690673828, 1081.3265380859375),
+	 TheHulk = Vector3.new(1366.0103759765625, 62.08702087402344, 1103.2564697265625),
+	 Thor = Vector3.new(1352.7103271484375, 62.18510818481445, 1120.456787109375),
+	 TheFlash = Vector3.new(1332.5853271484375, 62.07961654663086, 1129.2601318359375),
+}
+
+local l = {
+	lobby = Vector3.new(1330.598388671875, 126.45601654052734, 1092.494873046875),
+}
+
+function bypass_teleport(v)
+	if lp.Character and
+	lp.Character:FindFirstChild('HumanoidRootPart') then
+		local cf = CFrame.new(v)
+		local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+		a:Play()
+	end
+end
+
+local repo = 'https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/'
+
+local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
+local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
+
+local Window = Library:CreateWindow({
+    Title = 'Ware Hub',
+    Center = true,
+    AutoShow = true,
+    TabPadding = 8
+})
+
+local Tabs = {
+    Tycoon = Window:AddTab('Tycoon'),
+    ['Unverisal'] = Window:AddTab('Unverisal'),
+    ['UI Settings'] = Window:AddTab('UI Settings'),
+}
+local LeftGroupBox = Tabs.Tycoon:AddLeftGroupbox('Lobby')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Lobby',
+    Func = function()
+	bypass_teleport(l.lobby)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Go Back My Label Hero'
+})
+
+
+local LeftGroupBox = Tabs.Tycoon:AddRightGroupbox('Base Tycoon')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Green Lantern',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.GreenLantern)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Select You Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'SpiderMan',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.SpiderMan)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Select You Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'SuperMan',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.SuperMan)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Select You Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'AntMan',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.AntMan)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Select You Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'BatMan',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.BatMan)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Select You Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Iron Man',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.IronMan)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Select You Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Black Panther',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.BlackPanther)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Select You Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'The Hulk',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.TheHulk)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Select You Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Thor',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.Thor)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Select You Tycoon'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'The Flash',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.TheFlash)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Select You Tycoon'
+})
+
+local LeftGroupBox = Tabs.Tycoon:AddLeftGroupbox('View Tycoon')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Green Lantern',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.GreenLantern)
+	end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'SpiderMan',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.SpiderMan)
+	end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'SuperMan',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.SuperMan)
+	end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'AntMan',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.AntMan)
+	end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'BatMan',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.BatMan)
+	end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Iron Man',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.IronMan)
+	end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Black Panther',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.BlackPanther)
+	end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'The Hulk',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.TheHulk)
+	end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Thor',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.Thor)
+	end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'The Flash',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.TheFlash)
+	end,
+    DoubleClick = false,
+    Tooltip = 'View Tycoon In Label'
+})
+
+local LeftGroupBox = Tabs.Tycoon:AddLeftGroupbox('Go Tycoon')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Green Lantern',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.GreenLantern)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'SpiderMan',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.SpiderMan)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'SuperMan',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.SuperMan)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'AntMan',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.AntMan)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'BatMan',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.BatMan)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Iron Man',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.IronMan)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Black Panther',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.BlackPanther)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'The Hulk',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.TheHulk)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Thor',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.Thor)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon Players'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'The Flash',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.TheFlash)
+	end,
+    DoubleClick = false,
+    Tooltip = 'Go Tycoon Players'
+})
+
+local LeftGroupBox = Tabs.Unverisal:AddLeftGroupbox('Hummanoid')
+
+LeftGroupBox:AddSlider('MySlider', {
+    Text = 'Speed Charater',
+    Default = 0,
+    Min = 15,
+    Max = 100,
+    Rounding = 1,
+    Compact = false,
+    Callback = function(Value)
+        lp.Character.Humanoid.WalkSpeed = Value
+    end
+})
+
+LeftGroupBox:AddSlider('MySlider', {
+    Text = 'Jump Charater',
+    Default = 0,
+    Min = 50,
+    Max = 200,
+    Rounding = 1,
+    Compact = false,
+    Callback = function(Value)
+        lp.Character.Humanoid.JumpPower = Value
+    end
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Infinity Yield',
+    Func = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Infinity Yield Me No Reason'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Cmd-X',
+    Func = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source', true))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Cmd-X Me No Reason'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Domain X',
+    Func = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/DomainX/main/source',true))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Sirius Scripts'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Orca Hub',
+    Func = function()
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/latest.lua"))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Orca Hub Me No Reason'
+})
+
+local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
+
+MenuGroup:AddButton('Unload', function() Library:Unload() end)
+MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' })
+
+Library.ToggleKeybind = Options.MenuKeybind 
+
+ThemeManager:SetLibrary(Library)
+SaveManager:SetLibrary(Library)
+
+SaveManager:IgnoreThemeSettings()
+
+SaveManager:SetIgnoreIndexes({ 'MenuKeybind' })
+
+ThemeManager:SetFolder('MyScriptHub')
+
+SaveManager:SetFolder('MyScriptHub/specific-game')
+
+SaveManager:BuildConfigSection(Tabs['UI Settings'])
+
+ThemeManager:ApplyToTab(Tabs['UI Settings'])
+
+SaveManager:LoadAutoloadConfig()
