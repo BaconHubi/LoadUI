@@ -1,0 +1,508 @@
+local lp = game.Players.LocalPlayer
+
+local tween_s = game:GetService('TweenService')
+local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+
+local s = {
+	Jade = Vector3.new(35.75269317626953, 33.680965423583984, 171.9268341064453),
+	Sunshine = Vector3.new(145.93128967285156, 33.680965423583984, 138.57936096191406),
+	Angel = Vector3.new(-137.33950805664062, 33.68936538696289, -67.09571075439453),
+	Glitter = Vector3.new(144.04806518554688, 33.680965423583984, -157.68099975585938),
+	Spirit = Vector3.new(209.9417266845703, 33.68096160888672, -67.60509490966797),
+	Spring = Vector3.new(-138.66546630859375, 33.680973052978516, 45.1273193359375),
+	Cotton = Vector3.new(-70.52706146240234, 33.69015884399414, -159.7056427001953),
+	Moon = Vector3.new(36.30641174316406, 33.680965423583984, -193.42576599121094),
+	Friday = Vector3.new(209.23973083496094, 33.680973052978516, 47.27952194213867),
+	Rose = Vector3.new(-70.18383026123047, 33.680973052978516, 137.93450927734375),
+}
+
+local g = {
+	Jade = Vector3.new(78.31364440917969, 33.680965423583984, 177.036376953125),
+	Sunshine = Vector3.new(184.81529235839844, 33.680965423583984, 115.02906036376953),
+	Angel = Vector3.new(-156.1628875732422, 33.680965423583984, -29.327802658081055),
+	Glitter = Vector3.new(112.68260955810547, 33.680965423583984, -188.1319580078125),
+	Spirit = Vector3.new(201.73402404785156, 33.68096160888672, -107.38643646240234),
+	Spring = Vector3.new(-130.8938751220703, 33.680973052978516, 86.18762969970703),
+	Cotton = Vector3.new(-108.16283416748047, 33.680973052978516, -140.20030212402344),
+	Moon = Vector3.new(-6.87556266784668, 33.680965423583984, -198.34629821777344),
+	Friday = Vector3.new(229.74411010742188, 33.680973052978516, 7.666562557220459),
+	Rose = Vector3.new(-41.50212860107422, 33.680973052978516, 166.22821044921875),
+}
+
+local v = {
+	Jade = Vector3.new(36.029457092285156, 33.6848258972168, 43.79903030395508),
+	Sunshine = Vector3.new(68.1783218383789, 33.67960739135742, 35.28230667114258),
+	Angel = Vector3.new(-16.675119400024414, 33.68042755126953, -26.610454559326172),
+	Glitter = Vector3.new(67.59290313720703, 33.67960739135742, -53.99466323852539),
+	Spirit = Vector3.new(87.67179107666016, 33.680416107177734, -26.85635757446289),
+	Spring = Vector3.new(-16.114295959472656, 33.680416107177734, 6.1992669105529785),
+	Cotton = Vector3.new(4.237908840179443, 33.679752349853516, -57.24602127075195),
+	Moon = Vector3.new(35.62003707885742, 33.6848258972168, -65.09867858886719),
+	Friday = Vector3.new(88.76814270019531, 33.68046951293945, 6.953393936157227),
+	Rose = Vector3.new(3.2457773685455322, 33.679691314697266, 33.04072189331055),
+}
+
+local l = {
+	lobby = Vector3.new(36.06009292602539, 33.5565299987793, -11.146249771118164),
+}
+
+function bypass_teleport(v)
+	if lp.Character and
+	lp.Character:FindFirstChild('HumanoidRootPart') then
+		local cf = CFrame.new(v)
+		local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+		a:Play()
+	end
+end
+
+local repo = 'https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/'
+
+local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
+local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
+
+local Window = Library:CreateWindow({
+    Title = 'Ware Hub',
+    Center = true,
+    AutoShow = true,
+    TabPadding = 8
+})
+
+local Tabs = {
+    Tycoon = Window:AddTab('Tycoon'),
+    ['Unverisal'] = Window:AddTab('Unverisal'),
+    ['UI Settings'] = Window:AddTab('UI Settings'),
+}
+
+local LeftGroupBox = Tabs.Unverisal:AddLeftGroupbox('Hummanoid')
+
+LeftGroupBox:AddSlider('MySlider', {
+    Text = 'Speed Charater',
+    Default = 0,
+    Min = 15,
+    Max = 100,
+    Rounding = 1,
+    Compact = false,
+    Callback = function(Value)
+        lp.Character.Humanoid.WalkSpeed = Value
+    end
+})
+
+LeftGroupBox:AddSlider('MySlider', {
+    Text = 'Jump Charater',
+    Default = 0,
+    Min = 50,
+    Max = 200,
+    Rounding = 1,
+    Compact = false,
+    Callback = function(Value)
+        lp.Character.Humanoid.JumpPower = Value
+    end
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Infinity Yield',
+    Func = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Infinity Yield Me No Reason'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Cmd-X',
+    Func = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source', true))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Cmd-X Me No Reason'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Domain X',
+    Func = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/DomainX/main/source',true))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Sirius Scripts'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Orca Hub',
+    Func = function()
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/latest.lua"))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Orca Hub Me No Reason'
+})
+
+local LeftGroupBox = Tabs.Tycoon:AddRightGroupbox('Lobby')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Lobby',
+    Func = function()
+	bypass_teleport(l.lobby)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local LeftGroupBox = Tabs.Tycoon:AddRightGroupbox('View Tycoon / View Tycoon In Label')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Jade',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.Jade)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Sunshine',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.Sunshine)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Angel',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.Angel)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Glitter',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.Glitter)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Spirit',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.Spirit)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Spring',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.Spring)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Cotton',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.Cotton)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Moon',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.Moon)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Friday',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.Friday)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Rose',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.Rose)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local LeftGroupBox = Tabs.Tycoon:AddLeftGroupbox('Go Tycoon / Go My House')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Jade',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.Jade)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Sunshine',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.Sunshine)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Angel',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.Angel)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Glitter',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.Glitter)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Spirit',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.Spirit)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Spring',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.Spring)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Cotton',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.Cotton)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Moon',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.Moon)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Friday',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.Friday)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Rose',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.Rose)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local LeftGroupBox = Tabs.Tycoon:AddLeftGroupbox('Base Tycoon / Select Tycoon')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Jade',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.Jade)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Sunshine',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.Sunshine)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Angel',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.Angel)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Glitter',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.Glitter)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Spirit',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.Spirit)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Spring',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.Spring)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Cotton',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.Cotton)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Moon',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.Moon)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Friday',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.Friday)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Rose',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.Rose)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
+
+MenuGroup:AddButton('Unload', function() Library:Unload() end)
+MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' })
+
+Library.ToggleKeybind = Options.MenuKeybind 
+
+ThemeManager:SetLibrary(Library)
+SaveManager:SetLibrary(Library)
+
+SaveManager:IgnoreThemeSettings()
+
+SaveManager:SetIgnoreIndexes({ 'MenuKeybind' })
+
+ThemeManager:SetFolder('MyScriptHub')
+
+SaveManager:SetFolder('MyScriptHub/specific-game')
+
+SaveManager:BuildConfigSection(Tabs['UI Settings'])
+
+ThemeManager:ApplyToTab(Tabs['UI Settings'])
+
+SaveManager:LoadAutoloadConfig()
