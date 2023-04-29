@@ -1,0 +1,497 @@
+local lp = game.Players.LocalPlayer
+
+local tween_s = game:GetService('TweenService')
+local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+
+local s = {
+	DRBlueNinja = Vector3.new(183.99014282226562, 3.7950875759124756, -61.78031921386719),
+	BlackNinja = Vector3.new(191.52944946289062, 3.6950833797454834, 65.32367706298828),
+	PurpleNinja = Vector3.new(121.54540252685547, 3.695082902908325, 162.40264892578125),
+	RedNinja = Vector3.new(4.080848693847656, 3.795086622238159, 200.5384521484375),
+	VioletNinja = Vector3.new(-111.91309356689453, 3.7649786472320557, 163.46409606933594),
+	PinkNinja = Vector3.new(-185.5051727294922, 3.6950833797454834, 60.08715057373047),
+	GreenNinja = Vector3.new(-181.16363525390625, 3.7950878143310547, -61.83867263793945),
+	BlueNinja = Vector3.new(-112.39823913574219, 3.7950875759124756, -161.613037109375),
+	OrangenNinja = Vector3.new(-1.1670836210250854, 3.695082902908325, -196.1791229248047),
+	YellowNinja = Vector3.new(111.82775115966797, 3.7416799068450928, -158.796875),
+}
+
+local g = {
+	DRBlueNinja = Vector3.new(184.6677703857422, 3.8556809425354004, -74.79588317871094),
+	BlackNinja = Vector3.new(199.4154815673828, 3.6950833797454834, 57.381248474121094),
+	PurpleNinja = Vector3.new(132.67564392089844, 3.695082902908325, 159.609619140625),
+	RedNinja = Vector3.new(15.981488227844238, 3.695082902908325, 205.21694946289062),
+	VioletNinja = Vector3.new(-103.163818359375, 3.695082426071167, 173.4432373046875),
+	PinkNinja = Vector3.new(-188.76478576660156, 3.6950833797454834, 71.70911407470703),
+	GreenNinja = Vector3.new(-188.2591552734375, 3.695082426071167, -54.158321380615234),
+	BlueNinja = Vector3.new(-124.22190856933594, 3.6950833797454834, -158.44970703125),
+	OrangenNinja = Vector3.new(-9.22930908203125, 3.6950838565826416, -200.0825958251953),
+	YellowNinja = Vector3.new(106.68514251708984, 3.695082426071167, -168.68031311035156),
+}
+
+local v = {
+	DRBlueNinja = Vector3.new(57.710105895996094, 3.811575174331665, -15.9362211227417),
+	BlackNinja = Vector3.new(63.594871520996094, 3.811575174331665, 26.127487182617188),
+	PurpleNinja = Vector3.new(44.20675277709961, 3.8115761280059814, 52.83488464355469),
+	RedNinja = Vector3.new(1.897117257118225, 3.2762253284454346, 65.70136260986328),
+	VioletNinja = Vector3.new(-36.20830154418945, 3.8115761280059814, 53.205902099609375),
+	PinkNinja = Vector3.new(-56.66038513183594, 3.811575174331665, 22.106412887573242),
+	GreenNinja = Vector3.new(-53.38644027709961, 3.8115761280059814, -17.944015502929688),
+	BlueNinja = Vector3.new(-35.40564727783203, 3.8115761280059814, -52.519081115722656),
+	OrangenNinja = Vector3.new(-0.43645724654197693, 3.8115761280059814, -61.516544342041016),
+	YellowNinja = Vector3.new(34.30836868286133, 3.8115761280059814, -49.51583480834961),
+}
+
+local l = {
+	lobby = Vector3.new(-5.425681114196777, 61.550941467285156, 24.242029190063477),
+}
+
+function bypass_teleport(v)
+	if lp.Character and
+	lp.Character:FindFirstChild('HumanoidRootPart') then
+		local cf = CFrame.new(v)
+		local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+		a:Play()
+	end
+end
+
+local repo = 'https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/'
+
+local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
+local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
+
+local Window = Library:CreateWindow({
+    Title = 'Ware Hub',
+    Center = true,
+    AutoShow = true,
+    TabPadding = 8
+})
+
+local Tabs = {
+    Tycoon = Window:AddTab('Tycoon'),
+    ['Unverisal'] = Window:AddTab('Unverisal'),
+    ['UI Settings'] = Window:AddTab('UI Settings'),
+}
+
+local LeftGroupBox = Tabs.Unverisal:AddLeftGroupbox('Hummanoid')
+
+LeftGroupBox:AddSlider('MySlider', {
+    Text = 'Speed Charater',
+    Default = 0,
+    Min = 15,
+    Max = 100,
+    Rounding = 1,
+    Compact = false,
+    Callback = function(Value)
+        lp.Character.Humanoid.WalkSpeed = Value
+    end
+})
+
+LeftGroupBox:AddSlider('MySlider', {
+    Text = 'Jump Charater',
+    Default = 0,
+    Min = 50,
+    Max = 200,
+    Rounding = 1,
+    Compact = false,
+    Callback = function(Value)
+        lp.Character.Humanoid.JumpPower = Value
+    end
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Infinity Yield',
+    Func = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Infinity Yield Me No Reason'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Cmd-X',
+    Func = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source', true))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Cmd-X Me No Reason'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Domain X',
+    Func = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/DomainX/main/source',true))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Sirius Scripts'
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Orca Hub',
+    Func = function()
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/latest.lua"))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Orca Hub Me No Reason'
+})
+
+local LeftGroupBox = Tabs.Tycoon:AddLeftGroupbox('View Tycoon / View House In Label')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Dark Blue Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.DRBlueNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Black Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.BlackNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Purple Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.PurpleNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Red Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.RedNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Violet Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.VioletNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Pink Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.PinkNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Green Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.GreenNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Blue Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.BlueNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Orangen Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.OragenNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Yellow Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(v.YellowNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local LeftGroupBox = Tabs.Tycoon:AddRightGroupbox('Go Tycoon / Teleport Go House Players')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Dark Blue Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.DRBlueNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Black Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.BlackNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Purple Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.PurpleNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Red Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.RedNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Violet Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.VioletNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Pink Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.Pink)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Green Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.GreenNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Blue Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.BlueNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Orangen Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.OragenNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Yellow Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(g.YellowNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local LeftGroupBox = Tabs.Tycoon:AddLeftGroupbox('Select Tycoon / Select You Tycoon')
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Dark Blue Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.DRBlueNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Black Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.BlackNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Purple Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.PurpleNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Red Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.RedNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Violet Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.VioletNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Pink Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.PinkNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Green Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.GreenNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Blue Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.BlueNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Orangen Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.Orangen)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Yellow Ninja',
+    Func = function()
+	bypass_teleport(l.lobby)
+	task.wait(1)
+	bypass_teleport(s.YellowNinja)
+    end,
+    DoubleClick = false,
+    Tooltip = ''
+})
+
+local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
+
+MenuGroup:AddButton('Unload', function() Library:Unload() end)
+MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' })
+
+Library.ToggleKeybind = Options.MenuKeybind 
+
+ThemeManager:SetLibrary(Library)
+SaveManager:SetLibrary(Library)
+
+SaveManager:IgnoreThemeSettings()
+
+SaveManager:SetIgnoreIndexes({ 'MenuKeybind' })
+
+ThemeManager:SetFolder('MyScriptHub')
+
+SaveManager:SetFolder('MyScriptHub/specific-game')
+
+SaveManager:BuildConfigSection(Tabs['UI Settings'])
+
+ThemeManager:ApplyToTab(Tabs['UI Settings'])
+
+SaveManager:LoadAutoloadConfig()
