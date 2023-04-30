@@ -51,6 +51,14 @@ if game.PlaceId == 3804735158 then
 	end
 end
 
+if game.PlaceId == 5229131816 then
+	if ismobile then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/BlackHubT/LoadUI/main/NinjaTycoonMobile"),true)()
+	elseif ispc then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/BlackHubT/LoadUI/main/NinjaTycoonPc"),true)()
+	end
+end
+
 if ispc then
 getgenv().RTX = true
 
