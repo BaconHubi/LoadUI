@@ -59,7 +59,7 @@ if game.PlaceId == 5229131816 then
 	end
 end
 
-if ispc then
+if ispc or ismobile then
 getgenv().RTX = true
 
 while RTX do
